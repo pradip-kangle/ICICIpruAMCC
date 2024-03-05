@@ -1,5 +1,8 @@
 package com.iciciprunew.qa.pages;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.iciciprunew.qa.utils.GFG;
 import com.iciciprunew.qa.utils.Utilities;
 
 public class TransactionPage {
@@ -186,6 +190,15 @@ public class TransactionPage {
 		Thread.sleep(3000);
 		String redeentxnId = RedeemtxnID.getText();
 		System.out.println(redeentxnId);
+		try {
+			GFG.EnterDataIntoSpeciedRowColomn("D:\\Hybrid TestNG Framework\\IciciPruNew\\src\\main\\java\\com\\icicipunew\\qa\\testdata\\transaction.xlsx", "Txn", 0, 1,redeentxnId);
+		} catch (FileNotFoundException e1) {
+			
+			e1.printStackTrace();
+		} catch (IOException e1) {
+		
+			e1.printStackTrace();
+		}
 
 	}
 
