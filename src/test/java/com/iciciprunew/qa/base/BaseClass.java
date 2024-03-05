@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.iciciprunew.qa.pages.HomePage;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
@@ -59,6 +61,8 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(prop.getProperty("url"));
+		HomePage homePage = new HomePage(driver);
+		homePage.SignInAccount(prop.getProperty("username"), prop.getProperty("password"));
 
 		return driver;
 

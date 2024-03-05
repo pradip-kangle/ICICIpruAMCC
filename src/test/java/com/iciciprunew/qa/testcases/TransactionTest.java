@@ -31,24 +31,35 @@ public class TransactionTest extends BaseClass {
 
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		//driver.quit();
 
 	}
 
-	
-	
-	//@Test
+	@Test
 	public void RedeemTrxn() throws InterruptedException {
 
-		homePage = new HomePage(driver);
-		homePage.SignInAccount(prop.getProperty("username"), prop.getProperty("password"));
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clickOnnewTransactionButton();
 		TransactionPage transactionPage = new TransactionPage(driver);
-		transactionPage.redeemTransaction();
-		//Thread.sleep(1000);
+		transactionPage.redeemTrxn();
+		// Thread.sleep(1000);
 		transactionPage.setOTPintoOTPfield();
 
 	}
+	
+	
+	
+	
+	@Test
+	public void SwichTxn() throws InterruptedException {
+
+		dashboardPage = new DashboardPage(driver);
+		dashboardPage.clickOnnewTransactionButton();
+		TransactionPage transactionPage = new TransactionPage(driver);
+		transactionPage.switchTrxn();
+
+	}
+	
+	
 
 }

@@ -27,7 +27,7 @@ public class LoginTest extends BaseClass {
 
 	@AfterMethod
 	public void tearDown() {
-		 driver.quit();
+		//driver.quit();
 
 	}
 
@@ -41,10 +41,8 @@ public class LoginTest extends BaseClass {
 	 */
 
 	@Test
-	public void verifyLoginWithValidCredentialsWithPageObjectModel() throws InterruptedException {
+	public void Login() throws InterruptedException {
 
-		HomePage homePage = new HomePage(driver);
-		homePage.SignInAccount(prop.getProperty("username"), prop.getProperty("password"));
 		String actualTexttext = driver
 				.findElement(By.xpath("//h3[@class='MuiTypography-root MuiTypography-h3 Bold css-18h9l83']/span"))
 				.getText();
@@ -56,10 +54,8 @@ public class LoginTest extends BaseClass {
 	}
 
 	@Test
-	public void verifyLoginWithValidCredentialsWithPageObjectModel2() throws InterruptedException {
+	public void Login2() throws InterruptedException {
 
-		HomePage homePage = new HomePage(driver);
-		homePage.SignInAccount(prop.getProperty("username"), prop.getProperty("password"));
 		String actualTexttext = driver
 				.findElement(By.xpath("//h3[@class='MuiTypography-root MuiTypography-h3 Bold css-18h9l83']/span"))
 				.getText();
