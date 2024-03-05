@@ -42,7 +42,7 @@ public class LoginTest extends BaseClass {
 
 	@Test
 	public void Login() throws InterruptedException {
-
+		System.out.println("Hi");
 		String actualTexttext = driver
 				.findElement(By.xpath("//h3[@class='MuiTypography-root MuiTypography-h3 Bold css-18h9l83']/span"))
 				.getText();
