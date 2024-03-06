@@ -15,6 +15,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 //CreateCellAtSpecificPosition
 public class GFG {
 
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		EnterDataIntoSpeciedRowColomn("D:\\Hybrid TestNG Framework\\IciciPruNew\\src\\main\\java\\com\\icicipunew\\qa\\testdata\\NewFile.xlsx","PracticeSheet", 0, 3, "kangle");
+	}
  // Main driver method
  public static void EnterDataIntoSpeciedRowColomn(String Path,String SheetName,int Row,int colomn,String Value)
      throws FileNotFoundException, IOException

@@ -16,6 +16,7 @@ public class TransactionTest extends BaseClass {
 	public WebDriver driver;
 	HomePage homePage;
 	DashboardPage dashboardPage;
+	TransactionPage transactionPage;
 	Utilities utilities;
 
 	public TransactionTest() {
@@ -31,7 +32,7 @@ public class TransactionTest extends BaseClass {
 
 	@AfterMethod
 	public void tearDown() {
-		//driver.quit();
+		// driver.quit();
 
 	}
 
@@ -40,26 +41,48 @@ public class TransactionTest extends BaseClass {
 
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clickOnnewTransactionButton();
-		TransactionPage transactionPage = new TransactionPage(driver);
+		transactionPage= new TransactionPage(driver);
 		transactionPage.redeemTrxn();
 		// Thread.sleep(1000);
-		transactionPage.setOTPintoOTPfield();
-
+		transactionPage.setOTPintoOTPfield("Redeem transaction OTP");
+		transactionPage.setRedeemTxnIDIntoExcel();
 	}
-	
-	
-	
-	
+
 	@Test
 	public void SwichTxn() throws InterruptedException {
 
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clickOnnewTransactionButton();
-		TransactionPage transactionPage = new TransactionPage(driver);
+		transactionPage = new TransactionPage(driver);
 		transactionPage.switchTrxn();
-
+		transactionPage.setOTPintoOTPfield("Switch transaction OTP");
+		transactionPage.setSwitchTxnIDIntoExcel();
 	}
 	
 	
+	@Test
+	public void SIPTxn() throws InterruptedException {
 
+		dashboardPage = new DashboardPage(driver);
+		dashboardPage.clickOnnewTransactionButton();
+		transactionPage = new TransactionPage(driver);
+		transactionPage.sipTxn();
+		transactionPage.setOTPintoOTPfieldForSIP("SIP Purchase Transaction OTP");
+		transactionPage.setsipTxnIDIntoExcel();
+	}
+	
+	
+	@Test
+	public void Purchase() throws InterruptedException {
+
+		dashboardPage = new DashboardPage(driver);
+		dashboardPage = new DashboardPage(driver);
+		dashboardPage.clickOnnewTransactionButton();
+		transactionPage = new TransactionPage(driver);
+		transactionPage.PurchaseTxn();
+		transactionPage.setOTPintoOTPfieldForSIP("Purchase Transaction OTP");
+		transactionPage.setPurchaseTxnIDIntoExcel();
+		
+		
+	}
 }

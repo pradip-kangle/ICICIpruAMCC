@@ -7,7 +7,7 @@
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="SwichTxn"/>
+          <include name="Purchase"/>
         </methods>
       </class> <!-- com.iciciprunew.qa.testcases.TransactionTest -->
     </classes>

@@ -59,6 +59,7 @@ public class BaseClass {
 		}
 
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(prop.getProperty("url"));
 		HomePage homePage = new HomePage(driver);

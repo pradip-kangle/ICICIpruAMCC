@@ -42,7 +42,7 @@ public class Utilities {
 	private final static String password = "vrzh uyve ipht rpdh";
 
 
-	public static String getOtp() {
+	public static String getOtp(String subject) {
 		try {
 			String otp = "";
 
@@ -68,7 +68,7 @@ public class Utilities {
 			for (Message singleMessage : messages) {
 				System.out.println("hi");
 				// find a message with the same Subject as emails with OTP usually have
-				if (singleMessage.getSubject().equals("Redeem transaction OTP"))
+				if (singleMessage.getSubject().equals(subject))
 
 					System.out.println("hi2");
 				{
