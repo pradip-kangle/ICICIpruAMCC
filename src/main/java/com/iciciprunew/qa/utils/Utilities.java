@@ -28,7 +28,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
 
 public class Utilities {
-	
 
 	static String result = "";
 	static String messageBody = "";
@@ -40,7 +39,6 @@ public class Utilities {
 	private final static String email = "pradipkangale198@gmail.com";
 	// password is app password created for the email address above
 	private final static String password = "vrzh uyve ipht rpdh";
-
 
 	public static String getOtp(String subject) {
 		try {
@@ -101,9 +99,7 @@ public class Utilities {
 			throw new RuntimeException("There are problems with reading emails.");
 		}
 	}
-	
-	
-	
+
 	private static String getMessageBody(Message message) throws MessagingException, IOException {
 
 		if (message.isMimeType("text/plain")) {
@@ -143,34 +139,74 @@ public class Utilities {
 		return result;
 	}
 
+	public static Object[][] getTestDataFromExcel(String sheetName) {
 
-	
-	
-	
-	
-	
-	
-	
-	
-public static String captureScreenshot(WebDriver driver,String testName) {
-	
-	Date date = new Date();
-		
-		File srcScreenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String destinationScreenshotPath = System.getProperty("user.dir")+"\\Screenshots\\"+testName +date.toString().replace(" ","_").replace(":","_")+".png";
-		
+		File excelFile = new File(
+				System.getProperty("user.dir") + "\\src\\main\\java\\com\\iciciprunew\\qa\\testdata\\testdata.xlsx");
+		XSSFWorkbook workbook = null;
 		try {
-			FileHandler.copy(srcScreenshot,new File(destinationScreenshotPath));
+			FileInputStream fisExcel = new FileInputStream(excelFile);
+			workbook = new XSSFWorkbook(fisExcel);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+
+		XSSFSheet sheet = workbook.getSheet(sheetName);
+
+		int rows = sheet.getLastRowNum();
+		int cols = sheet.getRow(0).getLastCellNum();
+
+		Object[][] data = new Object[rows][cols];
+
+		for (int i = 0; i < rows; i++) {
+
+			XSSFRow row = sheet.getRow(i + 1);
+
+			for (int j = 0; j < cols; j++) {
+
+				XSSFCell cell = row.getCell(j);
+				CellType cellType = cell.getCellType();
+
+				switch (cellType) {
+
+				case STRING:
+					data[i][j] = cell.getStringCellValue();
+					System.out.println(data[i][j]);
+					break;
+				case NUMERIC:
+					data[i][j] = Integer.toString((int) cell.getNumericCellValue());
+					System.out.println(data[i][j]);
+					break;
+				case BOOLEAN:
+					data[i][j] = cell.getBooleanCellValue();
+					System.out.println(data[i][j]);
+					break;
+
+				}
+
+			}
+
+		}
+
+		return data;
+
+	}
+
+	public static String captureScreenshot(WebDriver driver, String testName) {
+
+		Date date = new Date();
+
+		File srcScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String destinationScreenshotPath = System.getProperty("user.dir") + "\\Screenshots\\" + testName
+				+ date.toString().replace(" ", "_").replace(":", "_") + ".png";
+
+		try {
+			FileHandler.copy(srcScreenshot, new File(destinationScreenshotPath));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return destinationScreenshotPath;
 	}
-
-	
-	
-
-	
 
 }

@@ -12,8 +12,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import com.iciciprunew.qa.utils.GFG;
+import com.iciciprunew.qa.utils.WriteDataIntoExcel;
 import com.iciciprunew.qa.utils.Utilities;
+import com.iciciprunew.qa.utils.WriteDataIntoExcel;
 
 public class TransactionPage {
 
@@ -365,7 +366,7 @@ public class TransactionPage {
 		String redeentxnId = RedeemtxnID.getText();
 		System.out.println(redeentxnId);
 		try {
-			GFG.EnterDataIntoSpeciedRowColomn(
+			WriteDataIntoExcel.EnterDataIntoSpeciedRowColomn(
 					"D:\\Hybrid TestNG Framework\\IciciPruNew\\src\\main\\java\\com\\iciciprunew\\qa\\testdata\\transaction.xlsx",
 					"Txn", 0, 1, redeentxnId);
 		} catch (FileNotFoundException e1) {
@@ -386,7 +387,7 @@ public class TransactionPage {
 		Thread.sleep(3000);
 
 		try {
-			GFG.EnterDataIntoSpeciedRowColomn(
+			WriteDataIntoExcel.EnterDataIntoSpeciedRowColomn(
 					"D:\\Hybrid TestNG Framework\\IciciPruNew\\src\\main\\java\\com\\iciciprunew\\qa\\testdata\\transaction.xlsx",
 					"Txn", 1, 0, switchtxnId);
 		} catch (FileNotFoundException e1) {

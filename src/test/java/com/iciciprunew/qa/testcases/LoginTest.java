@@ -5,10 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.iciciprunew.qa.base.BaseClass;
 import com.iciciprunew.qa.pages.HomePage;
+import com.iciciprunew.qa.utils.Utilities;
 
 public class LoginTest extends BaseClass {
 
@@ -27,7 +29,7 @@ public class LoginTest extends BaseClass {
 
 	@AfterMethod
 	public void tearDown() {
-		//driver.quit();
+		// driver.quit();
 
 	}
 
@@ -66,22 +68,22 @@ public class LoginTest extends BaseClass {
 
 	}
 
-	/*
-	 * @DataProvider(name = "validCredentialsSupplier") public Object[][]
-	 * SupplyTestData() {
-	 * 
-	 * Object[][] data = Utilities.getDataFromExcel("Login"); return data; }
-	 * 
-	 * //@Test(dataProvider = "validCredentialsSupplier") public void
-	 * verifyLoginWithValidCredentialsWithExcelFile(String email, String password)
-	 * throws InterruptedException {
-	 * 
-	 * // System.out.println(Utilities.usernamee);
-	 * 
-	 * HomePage homePage = new HomePage(driver); homePage.SignInAccount(email,
-	 * password); System.out.println("done");
-	 * 
-	 * }
-	 */
+	@DataProvider(name = "validCredentialsSupplier")
+	public Object[][] SupplyTestData() {
+
+		Object[][] data = Utilities.getTestDataFromExcel("Login");
+
+		return data;
+	}
+
+	
+	 @Test(dataProvider = "validCredentialsSupplier") 
+	 public void LoginWithExcelFile(String email, String password) throws InterruptedException {
+	  
+	  HomePage homePage = new HomePage(driver); 
+	  homePage.SignInAccount(email,password); 
+	  System.out.println("done");
+	  
+	  }
 
 }
