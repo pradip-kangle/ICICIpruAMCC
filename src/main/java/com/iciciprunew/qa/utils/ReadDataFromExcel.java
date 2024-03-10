@@ -17,7 +17,7 @@ public class ReadDataFromExcel {
 
 		GetDataFromRowColomn(
 				"D:\\Hybrid TestNG Framework\\IciciPruNew\\src\\main\\java\\com\\iciciprunew\\qa\\testdata\\testdata.xlsx",
-				"Login", 4, 0);
+				"Login", 1, 1);
 	}
 
 	public static Object GetDataFromRowColomn(String ExcelFilePath, String SheetNamee, int Row, int col)

@@ -198,14 +198,18 @@ public class TransactionPage {
 		liquidFundSelection.click();
 		SwitchInSchemedropdown.sendKeys("Bluechip Fund");
 		Thread.sleep(3000);
-		SwitchInSchemedropdown.sendKeys(Keys.ARROW_DOWN);
-		// Thread.sleep(5000);
-		SwitchInSchemedropdown.sendKeys(Keys.ENTER);
-		SchemeOptiondropdown.sendKeys("Growth");
-		Thread.sleep(3000);
-		SchemeOptiondropdown.sendKeys(Keys.ARROW_DOWN);
-		// Thread.sleep(5000);
-		SchemeOptiondropdown.sendKeys(Keys.ENTER);
+
+		Actions action = new Actions(driver);
+		action.sendKeys(SwitchInSchemedropdown, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+
+		
+		  //SwitchInSchemedropdown.sendKeys(Keys.ARROW_DOWN); // Thread.sleep(5000);
+		 // SwitchInSchemedropdown.sendKeys(Keys.ENTER);
+		  SchemeOptiondropdown.sendKeys("Growth"); 
+		  Thread.sleep(3000);
+		  SchemeOptiondropdown.sendKeys(Keys.ARROW_DOWN); // Thread.sleep(5000);
+		  SchemeOptiondropdown.sendKeys(Keys.ENTER);
+		 
 		swichtAmount.sendKeys("3");
 		continueButtonSwitch.click();
 
