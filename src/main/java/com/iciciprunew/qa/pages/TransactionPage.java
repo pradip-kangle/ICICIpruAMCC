@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.iciciprunew.qa.utils.WriteDataIntoExcel;
+import com.iciciprunew.qa.utils.ExtentReporter2;
 import com.iciciprunew.qa.utils.Utilities;
 import com.iciciprunew.qa.utils.WriteDataIntoExcel;
 
@@ -176,16 +177,17 @@ public class TransactionPage {
 
 	}
 
-	public void redeemTrxn() throws InterruptedException {
+	public void redeemTrxn() throws InterruptedException, IOException {
 
 		myFolioNumber.click();
-
 		withdrawLink.click();
 		Redeem.click();
 		liquidFundSelection.click();
 		redeemAmountInputField.sendKeys("1");
 		continueButton.click();
 		continueButton2.click();
+		
+		
 
 	}
 
@@ -364,11 +366,14 @@ public class TransactionPage {
 
 	}
 
-	public void setRedeemTxnIDIntoExcel() throws InterruptedException {
+	public void setRedeemTxnIDIntoExcel() throws InterruptedException, IOException {
 		continueButton3.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		
 		String redeentxnId = RedeemtxnID.getText();
 		System.out.println(redeentxnId);
+		
+		
 		try {
 			WriteDataIntoExcel.EnterDataIntoSpeciedRowColomn(
 					"D:\\Hybrid TestNG Framework\\IciciPruNew\\src\\main\\java\\com\\iciciprunew\\qa\\testdata\\transaction.xlsx",
