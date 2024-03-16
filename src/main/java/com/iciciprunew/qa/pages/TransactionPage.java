@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.iciciprunew.qa.utils.WriteDataIntoExcel;
-import com.iciciprunew.qa.utils.ExtentReporter2;
+
 import com.iciciprunew.qa.utils.Utilities;
 import com.iciciprunew.qa.utils.WriteDataIntoExcel;
 

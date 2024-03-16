@@ -4,6 +4,8 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.iciciprunew.qa.testcases.LoginTest"/>
+      <class name="com.iciciprunew.qa.testcases.TransactionTest"/>
+      <class name="com.iciciprunew.qa.base.BaseClass"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -16,7 +16,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -26,7 +25,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.iciciprunew.qa.base.BaseClass;
 import com.iciciprunew.qa.pages.HomePage;
-import com.iciciprunew.qa.utils.ExtentReporter2;
+
 import com.iciciprunew.qa.utils.Utilities;
 
 import ru.yandex.qatools.ashot.AShot;

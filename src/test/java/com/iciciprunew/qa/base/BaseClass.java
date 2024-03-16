@@ -30,7 +30,7 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.iciciprunew.qa.pages.HomePage;
-import com.iciciprunew.qa.utils.ExtentReporter2;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
