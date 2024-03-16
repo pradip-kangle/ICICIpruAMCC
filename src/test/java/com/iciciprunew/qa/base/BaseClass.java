@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import javax.imageio.ImageIO;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -58,19 +60,34 @@ public class BaseClass {
 
 	@BeforeSuite
 	public void setUp() {
-		sparkReporter = new ExtentSparkReporter(
-				new File("D:\\Hybrid TestNG Framework\\IciciPruNew\\test-output\\ExtentReports\\extentRport2.html"));
-
+		extent = new ExtentReports();
 		
+		File extentReportFile = new File(System.getProperty("user.dir")+"\\extentReport.html");
+		ExtentSparkReporter	sparkReporter = new ExtentSparkReporter(extentReportFile);
+		sparkReporter.config().setTheme(Theme.DARK);
+		extent.setSystemInfo("Application URL",prop.getProperty("url"));
+		extent.setSystemInfo("Browser Name",prop.getProperty("browser"));
+		extent.setSystemInfo("Email",prop.getProperty("username"));
+		extent.setSystemInfo("Password",prop.getProperty("password"));
+		extent.setSystemInfo("Operating System",System.getProperty("os.name"));
+		extent.setSystemInfo("Tester",System.getProperty("user.name"));
+		extent.setSystemInfo("Java Version",System.getProperty("java.version"));
+		//sparkReporter.config().setTheme(Theme.DARK);
+		sparkReporter.config().setReportName("ICICIPRUAMC Test Automation Results Report");
+		sparkReporter.config().setDocumentTitle("IPRU Automation Report");
+		sparkReporter.config().setTimeStampFormat("dd/MM/yyyy hh:mm:ss");
+		
+		extent.attachReporter(sparkReporter);
 		  try { sparkReporter.loadXMLConfig(new File(
 		  "D:\\Hybrid TestNG Framework\\IciciPruNew\\src\\test\\resources\\config3.xml"
 		  )); } catch (IOException e) { // TODO Auto-generated catch block
-		  e.printStackTrace(); }
+		  e.printStackTrace();
 		 
-		extent = new ExtentReports();
-		extent.attachReporter(sparkReporter);
-
+		 
 	}
+		 
+	}
+	
 
 	@AfterMethod
 	public void getResult(ITestResult result) {
@@ -85,6 +102,7 @@ public class BaseClass {
 					MarkupHelper.createLabel(result.getName() + " Test Case SKIPPED", ExtentColor.ORANGE));
 			test.skip(result.getThrowable());
 		}
+		driver.quit();
 	}
 
 	@AfterSuite
@@ -143,7 +161,8 @@ public class BaseClass {
 		HomePage homePage = new HomePage(driver);
 		homePage.SignInAccount(prop.getProperty("username"), prop.getProperty("password"));
 		// ExtentReporter2.CreateTest(driver);
-
+		Thread.sleep(3000);
+	
 		return driver;
 
 	}

@@ -12,7 +12,7 @@ public class ExtentReporter {
 	
 	public static ExtentReports generateExtentReport() {
 		
-		ExtentReports extentReport = new ExtentReports();
+		ExtentReports extentReport1 = new ExtentReports();
 		
 		File extentReportFile = new File(System.getProperty("user.dir")+"\\test-output\\ExtentReports\\extentReport.html");
 		ExtentSparkReporter sparkReporter = new ExtentSparkReporter(extentReportFile);
@@ -22,7 +22,7 @@ public class ExtentReporter {
 		sparkReporter.config().setDocumentTitle("IPRU Automation Report");
 		sparkReporter.config().setTimeStampFormat("dd/MM/yyyy hh:mm:ss");
 		
-		extentReport.attachReporter(sparkReporter);
+		extentReport1.attachReporter(sparkReporter);
 		
 		Properties configProp = new Properties();
 		File configPropFile = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\iciciprunew\\qa\\config\\config.properties");
@@ -34,15 +34,15 @@ public class ExtentReporter {
 			e.printStackTrace();
 		}
 		
-		extentReport.setSystemInfo("Application URL",configProp.getProperty("url"));
-		extentReport.setSystemInfo("Browser Name",configProp.getProperty("browser"));
-		extentReport.setSystemInfo("Email",configProp.getProperty("username"));
-		extentReport.setSystemInfo("Password",configProp.getProperty("password"));
-		extentReport.setSystemInfo("Operating System",System.getProperty("os.name"));
-		extentReport.setSystemInfo("Tester",System.getProperty("user.name"));
-		extentReport.setSystemInfo("Java Version",System.getProperty("java.version"));
+		extentReport1.setSystemInfo("Application URL",configProp.getProperty("url"));
+		extentReport1.setSystemInfo("Browser Name",configProp.getProperty("browser"));
+		extentReport1.setSystemInfo("Email",configProp.getProperty("username"));
+		extentReport1.setSystemInfo("Password",configProp.getProperty("password"));
+		extentReport1.setSystemInfo("Operating System",System.getProperty("os.name"));
+		extentReport1.setSystemInfo("Tester",System.getProperty("user.name"));
+		extentReport1.setSystemInfo("Java Version",System.getProperty("java.version"));
 		
-		return extentReport;
+		return extentReport1;
 	}
 
 }

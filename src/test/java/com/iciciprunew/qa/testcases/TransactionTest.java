@@ -49,7 +49,7 @@ public class TransactionTest extends BaseClass {
 
 	@Test
 	public void RedeemTrxn() throws InterruptedException, IOException {
-
+		test = extent.createTest("functionality1Test1","This test represents the user is logging using valid usernaame & password");
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clickOnnewTransactionButton();
 		
@@ -78,7 +78,7 @@ public class TransactionTest extends BaseClass {
 
 	@Test
 	public void SwichTxn() throws InterruptedException {
-
+		test = extent.createTest("functionality1Test1","This test represents the user is logging using valid usernaame & password");
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clickOnnewTransactionButton();
 		transactionPage = new TransactionPage(driver);
@@ -90,7 +90,7 @@ public class TransactionTest extends BaseClass {
 	
 	@Test
 	public void SIPTxn() throws InterruptedException {
-
+		test = extent.createTest("functionality1Test1","This test represents the user is logging using valid usernaame & password");
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clickOnnewTransactionButton();
 		transactionPage = new TransactionPage(driver);
@@ -102,7 +102,7 @@ public class TransactionTest extends BaseClass {
 	
 	@Test
 	public void Purchase() throws InterruptedException {
-
+		test = extent.createTest("functionality1Test1","This test represents the user is logging using valid usernaame & password");
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clickOnnewTransactionButton();
