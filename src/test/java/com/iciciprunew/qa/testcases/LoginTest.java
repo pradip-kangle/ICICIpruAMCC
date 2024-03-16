@@ -69,7 +69,7 @@ public class LoginTest extends BaseClass {
 	@Test
 	public void Login() throws InterruptedException, IOException, AWTException {
 		test = extent.createTest("LoginTest","This test represents the user is logging using valid usernaame & password");
-        //Assert.assertTrue(1 > 0);
+       
 		System.out.println("Hi");
 		
 		
@@ -117,7 +117,7 @@ public class LoginTest extends BaseClass {
 		System.out.println("Hi2");
 		Assert.assertEquals(actualTexttext, expected, "different");
 	
-	 
+		 Assert.assertTrue(0 > 0);
 
 		
 		

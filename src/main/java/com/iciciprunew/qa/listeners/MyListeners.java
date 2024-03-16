@@ -78,7 +78,7 @@ public class MyListeners implements ITestListener {
 		
 		extentReport.flush();
 		
-		String pathOfExtentReport = System.getProperty("user.dir")+"\\test-output\\ExtentReports\\extentReport.html";
+		String pathOfExtentReport = System.getProperty("user.dir")+"\\extentReportviaListeners.html";
 		File extentReport = new File(pathOfExtentReport);
 		
 		try {
