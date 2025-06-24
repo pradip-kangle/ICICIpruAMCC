@@ -1,0 +1,48 @@
+netstat -tulpen
+
+Parser environment -Preprod -100.92.90.61 connected to 100.92.90.56:8013       --ip/port
+parser production port no:5218
+
+Parser Services start & stop Path & cmd.
+Path-cd /home/cloudusr/builder/
+sudo nano /etc/systemd/system/Insight-API.service
+sudo nano /etc/systemd/system/Insight-API.service
+Production ws-parser-api name:-sudo systemctl status ws-parser-prod.service///ws-parser-prod.service
+lgt-uat-ws-parser.service service path:-/usr/lib/systemd/system
+cd /etc/systemd/system/
+sudo nano /etc/systemd/system/Insight-API-PreProd.service
+sudo systemctl status Insight-API-PreProd.service
+sudo systemctl status ws-api-parser-prod.service
+sudo systemctl status Insight-API.service
+sudo systemctl status nginx
+sudo systemctl status mysql
+
+
+sudo systemctl status lgt-api-prod.service
+sudo systemctl status lgt-ui-prod.service
+
+
+
+sudo systemctl status lgt-uat-ws-parser.service
+sudo systemctl stop lgt-uat-ws-parser.service
+sudo systemctl start lgt-uat-ws-parser.service
+
+Repository
+git@github.com:lgt-india-applications/ws-api-parser.git
+ssh -T git@github.com
+cd /root/.ssh
+
+journalctl -u Insight-API-PreProd.service -f
+journalctl -u Insight-API.service -f
+journalctl -u <service-name> -f
+journalctl -u lgt-uat-ws-parser.service -f
+
+-rw-r--r-- 1  id_rsa.pub
+-rw------- 1  id_rsa
+
+
+UAT & Preprod Parser Path:-Application Path-cd /home/cloudusr/repo/ws-api-parser/ws-parser-api/WebAPI-
+Production Parser Path:-cd /opt/repo/ws-api-parser/ws-parser-api/WebAPI
+
+https://mylogin-bpd.lgtindia.in/
+https://mylogin-bpdnv.lgtindia.in/
